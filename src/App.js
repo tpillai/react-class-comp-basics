@@ -1,25 +1,79 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import Todo from "./component/Todo"
+import Counter from "./component/Counter"
+import Forms from "./component/Forms"
+import FormsUC from "./component/FormsUC"
+import List from "./component/List"
+import MyPureComponent from "./component/MyPureComponent"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    myString: "Hello",
+    myStringOne: "Tejas",
+  };
+
+  handleChange = () => {
+    this.setState({
+      myStringOne: " Vaishu",
+    });
+  };
+
+  render() {
+    return this.newMethod6();
+  }
+
+ 
+  newMethod6() {
+    return (
+      <div>
+        <MyPureComponent />
+      </div>
+    );
+  }
+
+  newMethod5() {
+    return (
+      <div>
+        <List />
+      </div>
+    );
+  }
+
+  newMethod4() {
+    return (
+      <div>
+        <FormsUC />
+      </div>
+    );
+  }
+
+  newMethod3() {
+    return (
+      <div>
+        <Forms />
+      </div>
+    );
+  }
+
+  newMethod2() {
+    return (
+      <div className="App">
+        <h1>Events </h1>
+        <Counter />
+      </div>
+    );
+  }
+
+  newMethod1() {
+    return (
+      <div className="App">
+        <h1>{this.state.myString} </h1>
+        <button onClick={this.handleChange}>Change Text </button>
+        <Todo myStringOne={this.state.myStringOne} />
+      </div>
+    );
+  }
 }
 
 export default App;
